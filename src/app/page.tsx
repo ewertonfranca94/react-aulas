@@ -1,28 +1,27 @@
-import {usuario} from '@/data/pessoa';
 const Page = () => {
+  const hora = new Intl.DateTimeFormat('pt-BR',{
+    timeStyle: 'short',
+    hour12: false
+  }).format();
 
-  const gestores = usuario.filter(item => item.profissao === 'gestor');
+  const hour = new Date().getHours();
+  let horario = '';
 
-  
+  if(hour >= 0 && hour <12){
+    horario = 'Bom Dia';
+  }else if(hour >= 12 && hour < 18){
+    horario = 'Boa Tarde';
+  }else{
+    horario = 'Boa Noite';
+  }
   return (
-    <div>
-      <h1 className="font-bold text-2xl">Olá Mundo</h1>
-      <h3>Só os gestores</h3>
-
-      {gestores.length > 0 &&
-      <>
-        <h3>Lista:</h3>
-        <ul>
-          {gestores.map(q => 
-            <li key={q.id}>{q.nome} - {q.profissao}</li>
-          )}
-        </ul>
-      </>
-      }
-
-    </div>
+    <div className="w-screen h-screen flex flex-col justify-center items-center text-white
+    bg-gradient-to-r from-sky-500 to-indigo-500">
+        <div className="text-9xl">{hora}</div>
+        <div className="text-5xl">{horario}</div>
+    </div>  
+      
   );
 }
 
 export default Page;
-
