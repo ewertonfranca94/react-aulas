@@ -1,9 +1,12 @@
-import { Emoji } from "@/componentes/Emoji";
+import { EstudanteTable } from "@/componentes/EstudantesTable";
+import { estudante } from "@/data/estudantes";
 
 const Page = () => {
   return (
-    <div className="w-screen h-screen flex justify-center items-center">
-      <Emoji nota={5}/>
+    <div className="container mx-auto text-center">
+      <h1 className="text-xl mm-5"> Lista de estudantes</h1>
+      <EstudanteTable estudantes = {estudante}/>
+
     </div>  
       
   );
