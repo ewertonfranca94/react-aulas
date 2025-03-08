@@ -6,11 +6,7 @@ const Page = () => {
   const  [showSecret, setShowSecret] = useState(false);
   
   const handleClickButton = () => {
-    if (showSecret == false){
-      setShowSecret(true);
-    }else{
-      setShowSecret(false);
-    }
+    setShowSecret(!showSecret);
   }
 
   return (
